@@ -1,7 +1,6 @@
 module "vnet" {
-  source        = "Azure/avm-res-network-virtualnetwork/azurerm"
-  version       = "0.17.1"
-
+  source        = "git::https://github.com/raghavendiran222222-cloud/terraform-azurerm-vnet.git//?ref=v1.0.0"
+  
   name          = var.vnet_name
   location      = var.location
   parent_id     = var.resource_group_id
