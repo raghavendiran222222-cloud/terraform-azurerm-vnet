@@ -1,0 +1,20 @@
+name: Terraform Test on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tftest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install test dependencies
+        run: pip install -r tests/requirements.txt
+      - name: Run pytest
+        run: pytest tests/ -v
